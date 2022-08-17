@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <title>Show User Details</title>
+
+        <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('ui1.png');
+            background-size:cover;
+            justify-content:stretch;
+            min-height: 50vh;
+        }
+
+        h1{
+            font-size: 250%;
+            text-align: center;
+            color: cadetblue;
+        }
+
+        h2{
+            font-size: 120%;
+            margin: 10px;
+            color:turquoise; 
+        }
+        span{
+            font-size: 100%;
+            color: antiquewhite;
+        }
+
+        </style>
+       
+
+     </head>
+
+     <body>
+
+        <form action="FrontPage.html" method="get">
+           
+        <div>
+
+            <h1>USER DETAILS : </h1>
+            <table align="center" cellpadding="10">
+                <tr>
+                    <td>
+                        <h2>
+                            First Name : <span id="fir-name"/>
+                        </h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            Last Name : <span id="las-name"/>
+                        </h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            Age :<span id="user-age"/>
+                         </h2>
+                   </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            Address : <span id="user-add"/>
+                        </h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            Mobile Number :<span id="user-mob-num"/>
+                        </h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            E-mail ID :<span id="user-email"/>
+                        </h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>
+                            Date Of Birth :<span id="user-dob"/>
+                        </h2>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+        
+        </form>
+        
+        <script>
+            document.getElementById("fir-name").innerHTML=localStorage.getItem("userFirstName");
+            document.getElementById("las-name").innerHTML=localStorage.getItem("userLastName");
+            document.getElementById("user-age").innerHTML=localStorage.getItem("userAge");
+            document.getElementById("user-add").innerHTML=localStorage.getItem("userAddress");
+            document.getElementById("user-mob-num").innerHTML=localStorage.getItem("userMobNum");
+            document.getElementById("user-email").innerHTML=localStorage.getItem("userMailId");
+            document.getElementById("user-dob").innerHTML=localStorage.getItem("userDob");
+          
+        </script>
+     </body>
+</html>

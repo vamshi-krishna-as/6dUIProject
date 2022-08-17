@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<head>
+   
+    <title>
+        User Registration Page
+    </title>
+    
+    <script>
+        function pushValue(){
+            var firstName = document.getElementById("fName").value;
+            var lastName = document.getElementById("lName").value;
+            var userAge = document.getElementById("age").value;
+            var userAddress = document.getElementById("Addr").value;
+            var mobNumber = document.getElementById("mobNo").value;
+            var mailId = document.getElementById("mail").value;
+            var DOB = document.getElementById("DOB").value;
+
+            localStorage.setItem("userFirstName",firstName);
+            localStorage.setItem("userLastName",lastName);
+            localStorage.setItem("userAge",userAge);
+            localStorage.setItem("userAddress",userAddress);
+            localStorage.setItem("userMobNum",mobNumber);
+            localStorage.setItem("userMailId",mailId);
+            localStorage.setItem("userDob",DOB);
+            return false;  
+         }
+    </script>
+
+    <style>
+        
+        body{
+           display: flex;
+           background-image: url('ui1.png');
+           background-repeat: no-repeat;
+           background-size: cover;
+           justify-content:stretch;
+        }
+
+        label{
+            font-size: 120%;
+            color:turquoise;
+            font-weight: bold;
+            width: 150px;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        input{
+            color:black;
+            width: 400px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        #btn{
+        font-size: 15px;
+        width: 50%;
+        border: none;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+        }
+
+        h1{
+        font-size: 250%;
+        text-align: center;
+        color: cadetblue;
+        }
+        
+        li{
+            color: antiquewhite;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>
+            REGISTRATION FORM
+        </h1>
+        <form method="POST" action="OutputPage.html" name="regForm" id="Main"  onsubmit="return operations()">
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>
+                    <label for="FName">First Name : </label>
+                    <input type="text" id="fName" name="Firname" placeholder="Enter your First Name " required>
+                    <span id="fname"></span>
+                    <li>Enter alphabets only</li>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="LName" >Last Name : </label>
+                    <input type="text" id="lName" name="Lasname" placeholder="Enter your Last Name ">
+                    <span id="lname"></span>
+                    <li>Enter alphabets only</li>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label for="age">Age : </label>
+                    <input type="number" id="age" name="UserAge" placeholder="Enter your age " required>
+                    <span id="Uage"></span>
+                    <li>Enter numbers only</li>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address">Address : </label>
+                    <textarea id="Addr" name="Address" cols="40" rows="5"></textarea>
+                    <span id="UAddr"></span>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label for="mobile number">Mobile Number : </label>
+                    <input type="number" id="mobNo" name="MobileNumber" placeholder="Enter your Mobile Number " required>
+                    <span id="UMobNo"></span>
+                    <li>Enter 10 digit numbers only</li>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email-id">Email-Id : </label>
+                    <input type="email" id="mail" name="Mail-Id" placeholder="Enter your Email-Id ">
+                    <span id="EMail-Id"></span>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                    <label for="date of birth">Date-Of-Birth : </label>
+                    <input type="date" id="DOB" name="Date-Of-Birth" placeholder="Enter your date of birth ">
+                    <span id="Udob"></span>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <input type="submit" id="btn" onclick="pushValue();" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+
+        function operations(){
+            var fir_name = document.forms["regForm"]["fName"].value;
+            var las_name = document.forms["regForm"]["lName"].value;
+            var mob_num = document.forms["regForm"]["mobNo"].value;
+            var user_age = document.forms["regForm"]["age"].value;
+            var letter = /^[a-zA-Z]*$/;
+
+            if(!isNaN(fir_name) && !fir_name.match(letter))
+            {
+                alert("first name should not contain other than alphabets");
+                return false;
+            }
+    
+            if(!isNaN(las_name) && !las_name.match(letter))
+            {
+                alert("last name should not contain other than alphabets");
+                return false;
+            }
+
+            if(user_age>100 || user_age<1 || isNaN(user_age))
+            {
+                alert("The age must be a number 1 and 100");
+                return false;
+            }
+
+            if(mob_num.length!=10)
+            {
+                alert("Phone number must be 10 digits");
+                return false;
+            }
+        }   
+       
+    </script>
+
+</body>
+</html>
